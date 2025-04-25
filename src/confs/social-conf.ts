@@ -17,7 +17,6 @@ const SocialConf: SocialIcon[] = [
     _id: "github",
     iconName: "cib-github",
     target: "https://github.com/iaman0004",
-    canContact: false,
     iconType: "core",
   },
   {

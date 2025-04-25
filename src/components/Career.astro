@@ -3,18 +3,20 @@ import Journey from "./Journey.astro";
 import Flex from "@common-components/Flex.astro";
 ---
 
-<div class='container'>
-  <Flex justifyContent='center'>
-    <h3 class="header">My&nbsp;<span class='highlight'>Career Journey</span></h3>
+<div class="container">
+  <Flex justifyContent="center">
+    <h3 class="header">
+      My&nbsp;<span class="highlight">Career Journey</span>
+    </h3>
   </Flex>
-  <h5 class="subheader">Professional journey and achievement in software Development</h5>
-  <Flex>
-    <Journey />
-  </Flex>
+  <h5 class="subheader">
+    Professional journey and achievement in software Development
+  </h5>
+  <Journey />
 </div>
 
-<style lang='scss'>
-  @import '../styles/media.scss';
+<style lang="scss">
+  @import "../styles/media.scss";
   .container {
     .header {
       font-size: var(--text-2xl);

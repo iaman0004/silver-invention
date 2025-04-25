@@ -1,52 +1,35 @@
 ---
-const EXPERIENCE = [
-  {
-    title: "Software Engineer - II",
-    start: "Mar 2025",
-    end: "Present",
-    org: "Tekion Corp",
-    description:
-      "Worked with technologies like React, Angular, Node.js, Leaflet, Java, express,js.",
-    location: "Bengaluru, India"
-  },
-  {
-    title: "Software Development Engineer - II",
-    start: "Nov 2023",
-    end: "Mar 2025",
-    org: "Groupon",
-    description:
-      "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?",
-    location: "Bengaluru, India"
-  },
-  {
-    title: "Product Development Engineer - I",
-    start: "Dec 2021",
-    end: "Nov 2023",
-    org: "Phenom",
-    description:
-      "Worked with technologies like React, Angular, Node.js, Leaflet, Java, express,js.",
-    location: "Hyderabad, India"
-  },
-  {
-    title: "Software Engineer - L4",
-    start: "Oct 2020",
-    end: "Dec 2021",
-    org: "MapMyIndia",
-    description:
-      "Worked with technologies like React, Angular, Node.js, Leaflet, Java, express,js.",
-    location: "New Delhi, India"
-  },
+import { ExperienceConf } from "@confs";
+
+const months: string[] = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
 ];
+
+function getDate(date?: Time) {
+  if (!date) return "Present";
+  return months[date.month - 1] + " " + date.year;
+}
 ---
 
 <section class="journey">
-  <div class="container">
+  <div class="journey-container">
     {
-      EXPERIENCE.map((exp, idx) => (
+      ExperienceConf.map((exp, idx) => (
         <div
           class:list={[
             "timeline-block",
-            `timeline-block-${(idx & 1) ? "right" : "left"}`,
+            `timeline-block-${idx & 1 ? "right" : "left"}`,
           ]}
         >
           <div class="marker" />
@@ -54,19 +37,27 @@ const EXPERIENCE = [
             <h3 class="title">{exp.title}</h3>
             <section class="workplace">
               <div class="org-name">
-                <i class="cil-library-building icon"></i>
+                <i class="cil-library-building icon" />
                 <span>{exp.org}</span>
               </div>
               <div class="duration">
-                <i class="cil-calendar icon"></i>
-                <span>{exp.start + " - " + exp.end}</span>
+                <i class="cil-calendar icon" />
+                <span>
+                  {getDate(exp.duration.start) +
+                    " - " +
+                    getDate(exp.duration.end)}
+                </span>
               </div>
             </section>
             <section class="location">
-              <i class="cil-location-pin icon"></i>
+              <i class="cil-location-pin icon" />
               <span>{exp.location}</span>
             </section>
-            <p class="description">{exp.description}</p>
+            <ul>
+              {exp.description.map((d) => (
+                <li class="description">{d}</li>
+              ))}
+            </ul>
           </div>
         </div>
       ))
@@ -78,10 +69,9 @@ const EXPERIENCE = [
   @import "../styles/media.scss";
 
   .journey {
-    background: var(--background-dark);
     font-family: var(--font-family-inria);
   }
-  .container {
+  .journey-container {
     padding: 40px 32px;
     position: relative;
     overflow: hidden;
@@ -130,29 +120,6 @@ const EXPERIENCE = [
         float: none;
         direction: ltr;
       }
-      .timeline-content {
-        .title {
-          text-align: right;
-          @include medium_device {
-            text-align: left;
-          }
-        }
-        .description {
-          text-align: justify;
-        }
-        .workplace {
-          justify-content: flex-end;
-          @include medium_device {
-            justify-content: flex-start;
-          }
-        }
-        .location {
-          direction: rtl;
-          @include medium_device {
-            direction: ltr;
-          }
-        }
-      }
     }
 
     .marker {
@@ -181,14 +148,16 @@ const EXPERIENCE = [
       }
       .workplace {
         display: flex;
-        gap: 12px;
+        gap: 4px 12px;
         color: var(--light-main);
         margin: 12px 0 0;
+        flex-wrap: wrap;
       }
       .icon {
         color: var(--accent-contrast);
       }
-      .org-name, .duration {
+      .org-name,
+      .duration {
         font-family: var(--font-family-inria);
         display: flex;
         align-items: baseline;
@@ -201,13 +170,16 @@ const EXPERIENCE = [
         gap: 8px;
         margin-top: 4px;
       }
-      .description {
-        font-size: 14px;
-        line-height: 1.5em;
-        word-spacing: 1px;
-        color: var(--light-main);
-        margin: 12px 0 0;
-        font-family: var(--font-family-inria-regular);
+      ul {
+        margin-left: 18px;
+        .description {
+          font-size: 14px;
+          line-height: 1.5em;
+          word-spacing: 1px;
+          color: var(--light-main);
+          margin: 4px 0 0;
+          font-family: var(--font-family-inria-regular);
+        }
       }
     }
   }

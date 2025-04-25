@@ -1,5 +1,5 @@
 ---
-import { SocialConf } from "@utils";
+import { SocialConf } from "@confs";
 
 interface Props {
   contactOnly?: boolean;
@@ -15,7 +15,11 @@ const { contactOnly = false } = Astro.props;
         typeof soc.canContact === "undefined" || soc.canContact === contactOnly
     ).map((soc) => (
       <a href={soc.target} target="_blank" class="icon" id={soc._id}>
-        <i class:list={[soc.iconName, "icon-font"]} />
+        {soc.iconType === "core" ? (
+          <i class:list={[soc.iconName, "icon-font"]} />
+        ) : (
+          <span class="material-symbols-outlined">{soc.iconName}</span>
+        )}
       </a>
     ))
   }
@@ -26,9 +30,9 @@ const { contactOnly = false } = Astro.props;
     display: flex;
     gap: 12px;
     .icon {
-      color: #fff;
+      color: var(--light-main);
       padding: 8px 8px 6px;
-      border: 1px solid #fff;
+      border: 1px solid var(--light-main);
       border-radius: 6px;
       text-decoration: none;
       &-font {

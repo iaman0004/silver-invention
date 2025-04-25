@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "@common-components/*": ["src/components/common/*"],
-      "@utils": ["src/utils"]
+      "@confs": ["src/confs"]
     }
   }
 }
