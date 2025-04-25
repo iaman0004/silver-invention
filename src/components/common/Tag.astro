@@ -1,0 +1,31 @@
+---
+interface Props {
+  inverted?: boolean;
+  width?: string;
+}
+
+const { inverted, width } = Astro.props;
+---
+
+<div class={`tag ${inverted ? "inverted" : ""}`} style={{ width: width ?? 'max-content' }}>
+  <slot />
+</div>
+
+<style lang='scss'>
+  .tag {
+    line-height: 32px;
+    padding: 0 16px;
+    font-family: var(--font-family-inria);
+    background: var(--accent-mid-dark);
+    color: var(--light-main);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(1, 1, 1, 0.3);
+    width: fit-content;
+    &.inverted {
+      background: transparent;
+      color: var(--accent-mid-dark);
+      border-color: var(--light-grey);
+    }
+  }
+</style>

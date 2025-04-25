@@ -1,0 +1,33 @@
+---
+import Flex from './common/Flex.astro';
+import Text from './common/Text.astro';
+
+const EDUCATIONS = [
+  {
+    college: "Chandigarh University",
+    degree: "Master's",
+    year: '2022 - 2024',
+    description:
+      "Studied Master in Computer Applications",
+  },
+  {
+    college: "University of Delhi",
+    degree: "Bachelor's",
+    year: '2018 - 2021',
+    description:
+      "Studied B.Sc(hons) Computer Science at Aryabhatta College",
+  },
+  {
+    college: "Ashok Memorial Public School",
+    degree: "Senior Secondary",
+    year: '2016 - 2018',
+    description:
+      "Studied Physics, Chemistry, Mathematics along with Computer Science",
+  },
+];
+---
+
+<Flex flexDirection='column' alignItems='center'>
+  <Text font='var(--font-family-inria)' size='var(--text-md)' color='var(--light-main)'>Educational</Text>
+  <!-- <Timeline timeline={EDUCATIONS} slotName={{title: 'degree', subtitle: 'college', description: 'description', year: 'year'}} /> -->
+</Flex>

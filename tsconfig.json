@@ -1,0 +1,10 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@common-components/*": ["src/components/common/*"],
+      "@utils": ["src/utils"]
+    }
+  }
+}

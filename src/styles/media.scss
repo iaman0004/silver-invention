@@ -1,0 +1,14 @@
+$small-device: 480px;
+$medium-device: 720px;
+
+@mixin small_device {
+  @media screen and (max-width: $small-device) {
+    @content
+  }
+};
+
+@mixin medium_device {
+  @media screen and (max-width: $medium-device) {
+    @content
+  }
+};

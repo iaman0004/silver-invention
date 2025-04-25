@@ -1,0 +1,13 @@
+---
+interface Props {
+  size: string;
+  color?: string;
+  font?: string;
+}
+
+const { size = '1rem', color = 'inherit', font = 'inherit' } = Astro.props;
+---
+
+<div style={`font-size: ${size}; color: ${color}; font-family: ${font}`}>
+  <slot />
+</div>

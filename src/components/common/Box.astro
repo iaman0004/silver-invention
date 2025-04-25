@@ -1,0 +1,34 @@
+---
+import Flex from "./Flex.astro";
+
+interface Props {
+  icon: string;
+  text: string;
+}
+
+const { icon, text } = Astro.props;
+---
+
+<div class='box-wrapper'>
+  <Flex justifyContent='center' alignItems='center'>
+    <Fragment set:html={icon} />
+  </Flex>
+  <div class='text'>{text}</div>
+</div>
+
+<style lang='scss'>
+  .box-wrapper {
+    border: 1px solid var(--light-main);
+    padding: 16px;
+    min-width: 123px;
+    margin-right: 24px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.3);
+    .text {
+      font-family: var(--font-family-inria);
+      color: var(--light-main);
+      text-align: center;
+      padding-top: 12px;
+    }
+  }
+</style>

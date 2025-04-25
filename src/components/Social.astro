@@ -1,0 +1,42 @@
+---
+import { SocialConf } from "@utils";
+
+interface Props {
+  contactOnly?: boolean;
+}
+
+const { contactOnly = false } = Astro.props;
+---
+
+<section class="social">
+  {
+    SocialConf.filter(
+      (soc) =>
+        typeof soc.canContact === "undefined" || soc.canContact === contactOnly
+    ).map((soc) => (
+      <a href={soc.target} target="_blank" class="icon" id={soc._id}>
+        <i class:list={[soc.iconName, "icon-font"]} />
+      </a>
+    ))
+  }
+</section>
+
+<style lang="scss">
+  .social {
+    display: flex;
+    gap: 12px;
+    .icon {
+      color: #fff;
+      padding: 8px 8px 6px;
+      border: 1px solid #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      &-font {
+        font-size: 24px;
+      }
+      &:hover {
+        background-image: var(--gradient-highlight);
+      }
+    }
+  }
+</style>

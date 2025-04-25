@@ -1,0 +1,44 @@
+<a href="https://bit.ly/4jWyWyU" target="_blank" class="resume">
+  <span>download CV</span>
+  <span class="icon"><i class="cil-cloud-download"></i></span>
+</a>
+
+<script>
+  const FILE_URL: string = "https://bit.ly/4jWyWyU";
+  function downloadFile() {
+    fetch(FILE_URL)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "SDE-2_Aman_Kumar_Sharma.pdf";
+        link.click();
+      })
+      .catch(console.error);
+  }
+  
+  const el = document.querySelector('#_resume_');
+  el?.addEventListener('click', downloadFile);
+</script>
+
+<style lang="scss">
+  .resume {
+    border: 1px solid var(--light-main);
+    width: 200px;
+    padding: 8px 28px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: var(--light-main);
+    .icon {
+      font-size: 20px;
+      font-weight: 800;
+    }
+    &:hover {
+      background-image: var(--gradient-highlight);
+    }
+  }
+</style>

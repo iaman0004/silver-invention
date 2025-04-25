@@ -1,0 +1,84 @@
+:root {
+  /* Colors */
+  --background-primary: #04111e;
+  --background-dark: #0c1821;
+
+  --accent-contrast: #da4167;
+  --accent-light: #9400ff;
+  --accent-mid-dark: #793fdf;
+  --accent-dark: #6420aa;
+
+  --light-main: #fdfffc;
+  --light-mild: #f0ebd8;
+  --light-grey: #7d8491;
+
+  /* typography */
+  --text-xs: 0.5rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.625rem;
+  --text-2xl: 2.125rem;
+  --text-3xl: 2.625rem;
+  --text-4xl: 3.5rem;
+  --text-5xl: 4.5rem;
+
+  // fonts
+  --font-family-crimson: "Crimson Text", serif;
+  --font-family-madimi: "Madimi One", sans-serif;
+  --font-family-inria: "Inria Sans", sans-serif;
+  --font-family-inria-regular: "Inria Sans Regular", sans-serif;
+
+  --gradient-highlight: linear-gradient(
+    150deg,
+    var(--accent-dark),
+    var(--accent-contrast)
+  );
+
+  // screen size for media queries
+  --medium-screen: 800px;
+  --small-screen: 500px;
+}
+
+@font-face {
+  font-family: "Madimi One";
+  src: url("/fonts/MadimiOne-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inria Sans";
+  src: url("/fonts/InriaSans-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Crimson Text";
+  src: url("/fonts/CrimsonText-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inria Sans Regular";
+  src: url("/fonts/InriaSans-Light.ttf") format(truetype);
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}

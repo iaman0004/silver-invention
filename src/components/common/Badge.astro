@@ -1,0 +1,16 @@
+---
+import Flex from "./Flex.astro";
+import Text from "./Text.astro";
+
+interface Props {
+  svg: string;
+  name: string;
+}
+
+const { svg, name } = Astro.props;
+---
+
+<Flex flexDirection='row'>
+  <Flex set:html={svg} />
+  <Text size='var(--text-xl)' color='var(--light-main)'>{name}</Text>
+</Flex>
