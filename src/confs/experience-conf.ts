@@ -13,6 +13,7 @@ const experience: Company[] = [
       "Tekion Corp is a cloud-native platform transforming the automotive retail industry. It connects dealers, manufacturers, and customers through seamless, AI-driven solutions for sales, service, and operations.",
     ],
     location: "Bengaluru, India",
+    site: "https://tekion.com/",
   },
   {
     _id: "groupon_sde_2",
@@ -34,6 +35,7 @@ const experience: Company[] = [
       "Pioneered initiatives to merge repositories and git branches to unify the codebase to achieve code reusability by 30%.",
     ],
     location: "Bengaluru, India",
+    site: "https://www.groupon.com/",
   },
   {
     _id: "phenom_pde_1",
@@ -56,6 +58,7 @@ const experience: Company[] = [
       "Contributed towards streamling UI components across platform for design consistency",
     ],
     location: "Hyderabad, India",
+    site: "https://www.phenom.com/",
   },
   {
     _id: "mapmyindia_se_l4",
@@ -77,6 +80,7 @@ const experience: Company[] = [
       "Implemented a comprehensive Content Management System (CMS) for a heritage blog",
     ],
     location: "New Delhi, India",
+    site: "https://www.mapmyindia.com/",
   },
 ];
 

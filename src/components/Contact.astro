@@ -1,40 +1,21 @@
 ---
+import Container from "@common-components/Container.astro";
 import Social from "./Social.astro";
 ---
 
-<footer class="container">
-  <div class="contact">
-    <h3 class="header">Let's&nbsp;<span class="highlight">Connect</span></h3>
-    <h5 class="subheader">Feel free to reach out through any of these platforms</h5>
-  </div>
+<Container>
+  <Fragment slot="header"
+    >Let's&nbsp;<span class="highlight">Connect</span></Fragment
+  >
+  <Fragment slot="subheader"
+    >Feel free to reach out through any of these platforms</Fragment
+  >
   <div class="platforms">
     <Social contactOnly={true} />
   </div>
-</footer>
+</Container>
 
 <style lang="scss">
-  @import '../styles/media.scss';
-
-  .container {
-    .contact {
-      .header {
-        font-family: var(--font-family-inria);
-        font-size: var(--text-2xl);
-        text-align: center;
-        color: var(--light-main);
-        padding: 32px 0 8px;
-        @include medium_device {
-          font-size: var(--text-xl);
-        }
-      }
-      .subheader {
-        text-align: center;
-        font-family: var(--font-family-inria-regular);
-        color: var(--light-main);
-        padding-bottom: 32px;
-      }
-    }
-  }
   .platforms {
     display: flex;
     justify-content: center;

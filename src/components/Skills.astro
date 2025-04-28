@@ -1,13 +1,14 @@
 ---
 import Box from "@common-components/Box.astro";
-import { SkillIcons } from "@confs"
+import Container from "@common-components/Container.astro";
+import { SkillIcons } from "@confs";
 ---
 
-<div class="container">
-  <div class="title">
-    <h3 class="header">Skills & <span class="highlight">Expertise</span></h3>
-    <h5 class="subheader">My learning journey in tech</h5>
-  </div>
+<Container>
+  <Fragment slot="header">
+    Skills & <span class="highlight">Expertise</span>
+  </Fragment>
+  <Fragment slot="subheader">My learning journey in tech</Fragment>
   <div class="marquee">
     <div class="marquee-content">
       {
@@ -24,58 +25,35 @@ import { SkillIcons } from "@confs"
       }
     </div>
   </div>
-</div>
+</Container>
 
 <style lang="scss">
-  @import '../styles/media.scss';
-
-  .container {
-    background: var(--background-dark);
-    padding: 40px 0px;
+  @import "../styles/media.scss";
+  .marquee {
+    display: flex;
     overflow: hidden;
-    position: relative;
-    box-sizing: border-box;
-    .title {
-      color: var(--light-main);
-      text-align: center;
-      .header {
-        font-family: var(--font-family-inria);
-        font-size: var(--text-2xl);
-        @include medium_device {
-          font-size: var(--text-xl);
-        }
-      }
-      .subheader {
-        font-family: var(--font-family-inria-regular);
-        margin: 8px 0 32px
-      }
-    }
-    .marquee {
+    user-select: none;
+    gap: 1rem;
+    cursor: pointer;
+    // @TODO: fix the disapearing effect
+    // background-image: linear-gradient(to right, #cccccc, transparent 10%, transparent 90%,#cccccc 100%);
+    &-content {
+      flex-shrink: 0;
       display: flex;
-      overflow: hidden;
-      user-select: none;
+      justify-content: space-around;
+      min-width: 100%;
       gap: 1rem;
-      cursor: pointer;
-      // @TODO: fix the disapearing effect
-      // background-image: linear-gradient(to right, #cccccc, transparent 10%, transparent 90%,#cccccc 100%);
-      &-content {
-        flex-shrink: 0;
-        display: flex;
-        justify-content: space-around;
-        min-width: 100%;
-        gap: 1rem;
-        animation: scroll 20s linear infinite;
-      }
-      &:hover {
-        .marquee-content {
-          animation-play-state: paused;
-          -webkit-animation-play-state: paused;
-          -moz-animation-play-state: paused;
-        }
+      animation: scroll 20s linear infinite;
+    }
+    &:hover {
+      .marquee-content {
+        animation-play-state: paused;
+        -webkit-animation-play-state: paused;
+        -moz-animation-play-state: paused;
       }
     }
   }
-  
+
   @keyframes scroll {
     from {
       transform: translateX(0);

@@ -39,6 +39,9 @@ function getDate(date?: Time) {
               <div class="org-name">
                 <i class="cil-library-building icon" />
                 <span>{exp.org}</span>
+                <a href={exp.site} target="_blank" class="org-site">
+                  <i class="cil-external-link" />
+                </a>
               </div>
               <div class="duration">
                 <i class="cil-calendar icon" />
@@ -145,6 +148,9 @@ function getDate(date?: Time) {
       .title {
         font-size: var(--text-lg);
         color: var(--light-mild);
+        @include medium_device {
+          font-size: var(--text-md);
+        }
       }
       .workplace {
         display: flex;
@@ -163,6 +169,13 @@ function getDate(date?: Time) {
         align-items: baseline;
         gap: 8px;
       }
+      .org-site {
+        color: var(--light-main);
+        text-decoration: none;
+        &:hover {
+          color: var(--accent-contrast);
+        }
+      }
       .location {
         color: var(--light-main);
         display: flex;
@@ -173,7 +186,7 @@ function getDate(date?: Time) {
       ul {
         margin-left: 18px;
         .description {
-          font-size: 14px;
+          font-size: var(--text-base);
           line-height: 1.5em;
           word-spacing: 1px;
           color: var(--light-main);

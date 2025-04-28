@@ -16,9 +16,20 @@ type Company = {
   }
   location: string;
   description: Array<string>;
+  site: string;
 }
 
 type Time = {
   month: number;
   year: number;
+}
+
+type Project = {
+  _id: string;
+  title: string;
+  description: string;
+  tags: string[];
+  git?: string;
+  live?: string;
+  cover: string;
 }

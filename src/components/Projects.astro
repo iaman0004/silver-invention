@@ -1,0 +1,125 @@
+---
+import Card from "@common-components/Card.astro";
+import Tag from "@common-components/Tag.astro";
+import Container from "@common-components/Container.astro";
+
+import { ProjectsConf } from "@confs";
+---
+
+<Container>
+  <Fragment slot="header">
+    My&nbsp;<span class="highlight">Projects</span>
+  </Fragment>
+  <Fragment slot="subheader"
+  >Things I created while learning and solving problems</Fragment
+  >
+  <div class="project-container">
+    <div class="projects">
+      {
+        ProjectsConf.map((project: Project) => (
+          <Card>
+            <img
+              class="cover-image"
+              slot="cover"
+              src={project.cover}
+              alt={project.title}
+            />
+            <div slot="details" class="details">
+              <div class="project-title">{project.title}</div>
+              <p class="project-description" set:html={project.description} />
+              <div class="project-tags">
+                {project.tags.map((tag) => (
+                  <Tag class:list={[""]}>{tag}</Tag>
+                ))}
+              </div>
+              <div class="project-actions">
+                {!!project.git && (
+                  <a class="action" href={project.git} target="_blank">
+                    <i class="cib-github" />
+                    <span>Source</span>
+                  </a>
+                )}
+                {!!project.live && (
+                  <a class="action" href={project.live} target="_blank">
+                    <i class="cil-external-link" />
+                    <span>Live</span>
+                  </a>
+                )}
+              </div>
+            </div>
+          </Card>
+        ))
+      }
+    </div>
+  </div>
+</Container>
+
+<style lang="scss">
+  @import "../styles/media.scss";
+
+  .project-container {
+    padding: 0 32px;
+    @include medium_device {
+      padding: 0;
+    }
+  }
+  .projects {
+    display: grid;
+    margin: 0 16px;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    @include medium_device {
+      grid-template-columns: 1fr;
+    }
+    .cover-image {
+      height: auto;
+      width: 100%;
+      border-radius: 20px 20px 0 0;
+    }
+    .details {
+      color: var(--light-main);
+      .project {
+        &-title {
+          text-align: center;
+          font-family: var(--font-family-inria);
+          font-size: var(--text-lg);
+          color: var(--light-mild);
+        }
+        &-description {
+          font-family: var(--font-family-inria-regular);
+          font-size: var(--text-base);
+          margin: 16px 0;
+        }
+        &-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 4px 8px;
+        }
+        &-actions {
+          display: flex;
+          margin: 16px 0 0;
+          gap: 8px;
+          .action {
+            background: var(--light-grey);
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: var(--light-main);
+            text-decoration: none;
+            display: flex;
+            gap: 8px;
+            font-family: var(--font-family-inria);
+            border: 1px solid transparent;
+            &:hover {
+              color: var(--light-grey);
+              background: transparent;
+              border-color: var(--light-grey);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .tag-override {
+  }
+</style>
