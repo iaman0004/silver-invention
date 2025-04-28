@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="cover">
+    <slot name="cover" />
+  </div>
+  <div class="details">
+    <slot name="details" />
+  </div>
+</div>
+
+<style lang="scss">
+  .card {
+    border: 1px solid var(--light-grey);
+    border-radius: 20px;
+    overflow: hidden;
+    .cover {
+      background-size: cover;
+      height: 200px;
+      width: 100%;
+      background-position: center;
+    }
+    .details {
+      padding: 16px;
+      background: var(--background-dark);
+      height: calc(100% - 200px);
+      display: inline-flex;
+      border-radius: 0 0 20px 20px;
+      width: 100%;
+    }
+  }
+</style>
